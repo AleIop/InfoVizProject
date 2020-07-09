@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>IVIS: Retrials</title>
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!-- Style -->
+    <link rel="stylesheet" href="./css/index.css" type="text/css" />
+    <link rel="stylesheet" href="./css/worldmap.css" type="text/css" />
+    <link rel="stylesheet" href="./css/treemap.css" type="text/css" />
+    <link rel="stylesheet" href="./css/timegraph.css" type="text/css" />
+    <link rel="stylesheet" href="./css/filters.css" type="text/css" />
+    <link rel="stylesheet" href="./css/sidebar.css" type="text/css" />
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Retrials</a>
+      <button id="about-us" class="btn btn-outline-primary" data-toggle="modal" data-target="#aboutUsModal">About Us</button>
+    </nav>
+    <!-- Content -->
+    <div class="flexParent">
+      <div id="mainContent">
+        <div id="filters" class="filters mb-2"></div>
+        <div id="view-selector" class="btn-group" role="group">
+            <button autofocus type="button" class="switch-to-map btn btn-secondary btn-view">Map</button>
+            <button type="button" class="switch-to-treemap btn btn-secondary btn-view">Tree map</button>
+          </div>
+        <div id="visualization">
+        <div id="geo-map">
+            <div id="tooltip" class="tooltip">
+                <div class="tooltip-study" id="study"></div>
+                <div class="tooltip-title">
+                    <span id="title"></span>
+                </div>
+                <div class="tooltip-info">
+                    <span id="info"></span>
+                </div>
+            </div>
+            <div id="geoMap"></div>
+        </div>
+        <div id="treeMap" class="d-none"></div>
+        </div>
+        <div id="timeGraph"></div>
+        <div id="legend" class="mx-2 d-flex flex-row justify-content-center"></div>
+      </div>
+      <div id="sidebar" class="sidebar"></div>
+    </div>
+    <!-- About us modal -->
+  <div class="modal fade" id="aboutUsModal" tabindex="-1" role="dialog" aria-labelledby="aboutUsModal" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel">About us</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="developers-tab" data-toggle="tab" href="#developers" role="tab" aria-controls="developers" aria-selected="true">Developers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="process-tab" data-toggle="tab" href="#process" role="tab" aria-controls="process" aria-selected="false">Process</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="developers" role="tabpanel" aria-labelledby="developers-tab">
+              <div class="d-flex flex-row justify-content-center mt-4 mb-1">
+                <div class="container-person">
+                  <img class="icon" src="./icons/Omar.png"><br>
+                  <h4>Omar Alabbasi</h4>
+                  <text>alaoma@kth.se</text><hr>
+                  <ul>
+                    <li>Front-end development</li>
+                    <li>Back-end development</li>
+                    <li>Graphic design</li>
+                  </ul>
+                </div>
+                <div class="container-person">
+                  <img class="icon" src="./icons/Alfred.png"><br>
+                  <h4>Alfred Berg</h4>
+                  <text>alfrberg@kth.se</text>
+                  <hr>
+                  <ul>
+                    <li>Content creation</li>
+                    <li>Raw data manipulation</li>
+                    <li>Web development</li>
+                  </ul>
+                </div>
+                <div class="container-person">
+                  <img class="icon" src="./icons/John.png"><br>
+                  <h4>John Castronuovo</h4>
+                  <text>johncas@kth.se</text>
+                  <hr>
+                  <ul>
+                    <li>Front-end development</li>
+                    <li>Back-end development</li>
+                  </ul>
+                </div>
+                <div class="container-person">
+                  <img class="icon" src="./icons/Alessandro.png"><br>
+                  <h4>Alessandro Iop</h4>
+                  <text>aiop@kth.se</text>
+                  <hr>
+                  <ul>
+                    <li>Front-end development</li>
+                    <li>Back-end development</li>
+                    <li>Graphic design</li>
+                  </ul>
+                </div>
+                <div class="container-person border-right-0">
+                  <img class="icon" src="./icons/Federico.png"><br>
+                  <h4>Federico Jimenez</h4>
+                  <text>fjv@kth.se</text>
+                  <hr>
+                  <ul>
+                    <li>Front-end development</li>
+                    <li>Graphic design</li>
+                  </ul>
+                </div>
+              </div>
+
+              <br><table>
+                <tr>
+                  <td colspan="2">
+                    <h3>What we learned</h3>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <h4>Theoretical knowledge</h4>
+                    <text>
+                      ClinicalTrials.gov is a extensive database with many dimensions of data and a wide range of users. Interviews with stakeholders, meetings with our supervisor, and thorough explorations of the website taught us how to set an appropriate scope for our project. Navigating the ClinicalTrials.gov’s data structures and API taught us valuable lessons in how to organize and transform large amounts of (often textual) data. The amount and variety of data also forced us to consider several methods for mapping the data to meaningful visual structures.
+                    </text>
+                  </td>
+
+                  <td>
+                    <h4>Practical knowledge</h4>
+                    <text>
+                      Front-end development consisted of designing, implementing and testing visualizations as well as the structure of  and interactions with the web page. On top of that, graphic design involved curating the layout of the different sections in the page, from the search results to the filters, from the time graph to the navigation bar. On the other hand, back-end development consisted of managing the status of the application, searching clinical trials according to the input of the user, and notifying the different section controllers of the updated results. Two different third-party APIs where employed, among which the one provided by ClinicalTrials.gov.
+                    </text>
+                  </td>
+                </tr>
+              </table>
+
+              <table id="tech-table">
+                <tr>
+                  <td colspan="3">
+                    <h3>Technlogies and frameworks used</h3>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <h4>Front-end</h4>
+                    <img class="icon" src="./icons/d3logo.svg">
+                    <img class="icon" src="./icons/Jquery.svg">
+                  </td>
+                  <td>
+                    <h4>Graphic design</h4>
+                    <img class="icon" src="./icons/HTML5.svg">
+                    <img class="icon" src="./icons/CSS3.svg">
+                    <img class="icon" src="./icons/bootstrap.svg">
+                  </td>
+                  <td>
+                    <h4>Back-end</h4>
+                    <img class="icon" style="height: 5em;" src="./icons/clinical.png">
+                    <img class="icon" src="./icons/gocoder.jpeg">
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="tab-pane fade" id="process" role="tabpanel" aria-labelledby="process-tab">
+              <div class="mt-4 mb-1 background">
+                <table>
+                  <tr>
+                    <td>
+                      <h4>Background</h4>
+                      <text>
+                        ClinicalTrials.gov is the world’s largest public clinical research registry and results database, providing free access to information on medical studies with human volunteers in over 200 countries. It supports a large network of stakeholders who contribute to, and rely on, clinical research.<br>
+                        RETRIALS is a project aimed at improving healthcare professionals’ interaction with this vast database by providing interactive and meaningful visual representations of the most relevant data.
+                      </text>
+                    </td>
+
+                    <td id="iframe">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/2aFXcr_PVQ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <h4>Who are our users?</h4>
+                      <text>
+                        <mark class="mark1">Healthcare professionals searching for clinical trials for their patients</mark>, <mark class="mark2">gathering information about a specific type of disease or intervention</mark>, or <mark class="mark3">exploring the database to make informed decisions about their future research opportunities</mark>.
+                      </text>
+                    </td>
+
+                    <td>
+                      <h4>What are their needs?</h4>
+                      <text>
+                        <mark class="mark1">Filtering results based on disease, intervention, recruitment status, and location</mark>; <mark class="mark2">assessing the success rate and distribution of specific interventions</mark>; <mark class="mark3">comparing the number of trials associated with a specific disease or a category of diseases</mark>.
+                      </text>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td colspan="2">
+                      <h3>How does RETRIALS help them?</h3>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <h3>World map + time graph</h3>
+                      <text>
+                        Augments database search by mapping results to geographical positions as well as a time graph. The search field supports detailed filtering of the data, and the visual attributes gives the user an overview over the amount, location, and start date of studies that match their search criteria. Using this view, our users can quickly identify studies based on the type of disease, study, and intervention, as well as status and location. Other interactions like highlighting, zooming, and selecting provide further detail and link results across modules. 
+                      </text>
+                    </td>
+
+                    <td class="screenshot">
+                      <img  src="./documentation/screen1.png"><br>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="screenshot">
+                      <img  src="./documentation/screen2.png"><br>
+                    </td>
+
+                    <td>
+                      <h3>Treemap</h3>
+                      <text>
+                        Categorizes all studies according to the hierarchical relationship between diseases and displays it as a set of nested rectangles with areas proportional to the number of studies associated with the name of each rectangle. Treemaps make efficient use of space and enables effortless visual comparison of large datasets, which makes them useful when trying to find well-financed or underdeveloped research areas or just exploring the database. Interactive navigation eases the user’s visual processing by presenting a sensible number of rectangles at each level and hovering provides details as tooltips. Clicking on a dark rectangle expands its contents whereas clicking on a light one automatically prepares a search for that specific disease.
+                      </text>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+  <!-- Bootstrap -->
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"
+  ></script>
+  <!-- Hyperscript -->
+  <script src="https://www.csc.kth.se/~cristi/hyperscript/0.1.js"></script>
+  <!-- D3 version 5 -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <!-- Topojson -->
+  <script src="https://unpkg.com/topojson@3"></script>
+  <!-- Treemap -->
+  <script src="js/TreeMap/importer.js" type="module"></script>
+  <!-- App -->
+  <script src="js/Model.js"></script>
+  <script src="js/util/renderPromise.js"></script>
+  <script src="MainContent/MapController.js"></script>
+  <script src="MainContent/TreeMapController.js"></script>
+  <script src="MainContent/Filters.js"></script>
+  <script src="MainContent/TimeGraph.js"></script>
+  <script src="Sidebar/SidebarController.js"></script>
+  <script src="js/app.js"></script>
+</html>

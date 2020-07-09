@@ -1,0 +1,76 @@
+#visualization .observablehq--collapsed, #visualization .observablehq--expanded, #visualization .observablehq--function, #visualization .observablehq--gray, #visualization .observablehq--import, #visualization .observablehq--string:after, #visualization .observablehq--string:before {
+	color: var(--syntax_normal);
+}
+
+#visualization .observablehq--collapsed, #visualization .observablehq--inspect a {
+	cursor: pointer;
+}
+
+#visualization .observablehq--field {
+	text-indent: -1em;
+	margin-left: 1em;
+}
+
+#visualization .observablehq--empty {
+	color: var(--syntax_comment);
+}
+
+#visualization .observablehq--blue, #visualization .observablehq--keyword {
+	color: #3182bd;
+}
+
+#visualization .observablehq--forbidden, #visualization .observablehq--pink {
+	color: #e377c2;
+}
+
+#visualization .observablehq--orange {
+	color: #e6550d;
+}
+
+#visualization .observablehq--boolean, #visualization .observablehq--null, #visualization .observablehq--undefined {
+	color: var(--syntax_atom);
+}
+
+#visualization .observablehq--bigint, #visualization .observablehq--date, #visualization .observablehq--green, #visualization .observablehq--number, #visualization .observablehq--regexp, #visualization .observablehq--symbol {
+	color: var(--syntax_number);
+}
+
+#visualization .observablehq--index, #visualization .observablehq--key {
+	color: var(--syntax_key);
+}
+
+#visualization .observablehq--prototype-key {
+	color: #aaa;
+}
+
+#visualization .observablehq--empty {
+	font-style: oblique;
+}
+
+#visualization .observablehq--purple, #visualization .observablehq--string {
+	color: var(--syntax_string);
+}
+
+#visualization .observablehq--error, #visualization .observablehq--red {
+	color: #e7040f;
+}
+
+#visualization .observablehq--inspect {
+	font: var(--mono_fonts);
+	overflow-x: auto;
+	display: block;
+	white-space: pre;
+}
+
+#visualization .observablehq--error .observablehq--inspect {
+	word-break: break-all;
+	white-space: pre-wrap;
+}
+
+#visualization .observablehq--inspect {
+	display: none;
+}
+
+#treeMap tspan {
+	font-size: 12px;
+}

@@ -1,0 +1,48 @@
+.debug {
+  /* border-style: solid; */
+}
+
+@media (min-width: 250px) {
+  .flexParent {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    height: 90%;
+  }
+}
+
+.mainContent {
+  flex: 1;
+  overflow-y: scroll;
+}
+
+.spinnerClass {
+  text-align: center;
+}
+
+.dish {
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+  text-align: center;
+}
+
+.dish > span {
+  display: inline-block;
+}
+
+.hide {
+  display:none;
+}
+
+.nav {
+  float: right;
+}
+
+#details img {
+  float: left;
+}
+
+#details ol {
+  overflow: hidden;
+}

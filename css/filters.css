@@ -1,0 +1,78 @@
+.div-filter {
+  margin: 0.25%;
+}
+
+.form-control {
+  border-color: #495057;
+}
+
+.form-control::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-toggle {
+  background-color: #EEEEEE;
+  border-color: #495057;
+  color: black;
+}
+
+#filters {
+  background-color: #F8F9FA;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #EEEEEE;
+}
+
+#form-filter {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  padding: 0.5%;
+}
+
+#search {
+  background-color: white;
+  font-weight: bold;
+}
+
+#search:hover {
+  color: white;
+  background-color: #007bff;
+}
+
+.dropdown-menu {
+  padding-top: 0;
+  max-height: 280px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.dropdown-item > input,
+.dropdown-item > label {
+  display: inline-block;
+}
+
+.dropdown-item > label {
+  padding-left: 10px;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.dropdown-item {
+  padding: 10px;
+  border-bottom: solid 1px #eee;
+  vertical-align: middle;
+}
+
+#study_name {
+  width: 15% !important;
+}
+
+#other_terms {
+  width: 15% !important;
+}

@@ -1,0 +1,115 @@
+.result-count {
+  position: sticky;
+  top: 0%;
+  padding: 1.5%;
+  background-color: #EEEEEE;  /*border-bottom: 1px solid #dee2e6;*/
+}
+
+.card-body {
+  border-bottom: 1px solid #DEE2E6;
+  padding: 3% 0%;
+  margin: 0% 3%;
+}
+
+.card-first-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.5%;
+}
+
+.result-rank {
+  margin: 0% !important;
+}
+
+.has-result {
+  margin-left: auto !important;
+}
+
+.text-muted {
+  margin: 0%;
+}
+
+.card-text {
+  margin: 0% 0% 1% 0%;
+}
+
+.card-title {
+  margin-bottom: 1.5%
+}
+
+.card-last-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.country {
+  bottom: 0%;
+  margin-left: auto;
+}
+
+.Recruiting {
+  color: red !important;
+  fill: red !important;
+}
+
+.Completed {
+  color: blue !important;
+  fill: blue !important;
+}
+
+.Enrolling_by_invitation {
+  color: green !important;
+  fill: green !important;
+}
+
+.Not_yet_recruiting {
+  color: orange !important;
+  fill: orange !important;
+}
+
+.Unknown_status {
+  color: #6c757d !important;
+  fill: #6c757d !important;
+}
+
+.Suspended {
+  color: black !important;
+  fill: black !important;
+}
+
+.Terminated {
+  color: purple !important;
+  fill: purple !important;
+}
+
+.Withdrawn {
+  color: brown !important;
+  fill: brown !important;
+}
+
+.Active_not_recruiting {
+  color: darkolivegreen !important;
+  fill: darkolivegreen !important;
+}
+
+#pageBtnDiv {
+  height: 7%;
+  position: sticky;
+  bottom: 0%;
+  display: flex;
+  flex-direction: row;
+  padding: 2%;
+  background-color: #EEEEEE;
+}
+
+#previousPage {
+  margin-left: 0%;
+  background-color: #007BFF;
+  color: white;
+}
+
+#nextPage {
+  margin-left: auto;
+  background-color: #007BFF;
+  color: white;
+}

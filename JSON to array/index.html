@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<div></div>
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script type="text/javascript">
+			const N_ITEMS = 20;
+
+			d3.json("./flare-2.json").then(function(data) {
+				data.parent = data;
+				this.fixProblems(data);
+				this.fixProblems2(data);
+				data.parent = null;
+				console.log(data);
+
+				//13: CONVERT OBJECTS TO JSON
+				var geison = JSON.stringify(data);
+
+				document.body.querySelector("div").innerHTML = geison;
+			});
+
+			function fixProblems(dataPoint) {
+				if (dataPoint.children != undefined)
+						//9: ITERATE FOR PARENT'S SIBLINGS
+						for (var i = 0; i < dataPoint.children.length; i++) {
+							dataPoint.children[i].parent = dataPoint;
+							//1: DESCEND TO LEAF
+							fixProblems(dataPoint.children[i]);
+						}
+
+				//2: GO TO PARENT
+				if (dataPoint.parent == dataPoint) return;
+				dataPoint = dataPoint.parent;
+
+				//3: SUM VALUES TO CHILDREN AND ASSIGN VALUE TO PARENT
+				dataPoint.value = 0;
+				if (dataPoint.children != undefined)
+					for (x = 0; x < dataPoint.children.length; x++)
+						dataPoint.value += dataPoint.children[x].value;
+
+				//4: SORT CHILDREN BY VALUE
+				dataPoint.children.sort((a, b) => (a.value > b.value) ? -1 : 1);
+
+				//5: REMOVE PARENT ATTRIBUTE TO AVOID LOOPS
+				dataPoint.children.forEach(e => e.parent = null);
+
+				//6: COPY LAST CHILDREN TO TEMP OBJECT
+				var temp = {};
+				temp.children = dataPoint.children.slice(N_ITEMS); //items from 10 to the end are still there!
+
+				//7: ASSIGN ATTRIBUTES TO TEMP OBJECT
+				temp.name = 'more';
+				computeMoreValue(temp);
+
+				//8: ASSIGN TEMP TO NEW PROPERTY OF DATA POINT
+				dataPoint['more'] = temp;
+			}
+
+			function fixProblems2(dataPoint) {
+				if (dataPoint.children != undefined) {
+					//10: DELETE (N+1)-TH TO LAST CHILDREN
+						dataPoint.children.splice(N_ITEMS);
+
+					//11: ITERATE ON CHILDREN
+					dataPoint.children.forEach(e => fixProblems2(e));
+				}
+
+				//12: ITERATE ON 'MORE' ARRAY
+				if (dataPoint['more'] != undefined) dataPoint['more'].children.forEach(e => fixProblems2(e));
+			}
+
+			function computeMoreValue(dataPoint) {
+				dataPoint.value = 0;
+				dataPoint.children.forEach((e) => dataPoint.value += e.value);
+			}
+		</script>
+	</body>
+</html>

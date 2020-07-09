@@ -1,0 +1,111 @@
+circle {
+  pointer-events: none;
+}
+
+.world-map {
+  height: 30%;
+}
+
+.earth {
+  fill: transparent;
+  stroke: none;
+}
+
+.graticule {
+  stroke: #cadddd;
+  fill: transparent;
+}
+
+.tooltip {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  padding: 0.6em 1em;
+  background: #fff;
+  text-align: center;
+  border: 1px solid #ddd;  /* z-index: 10; */
+  transition: all 0.2s ease-out;
+  pointer-events: none;
+}
+
+.tooltip::before {
+  /* content: ''; */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border: 1px solid #ddd;
+  border-top-color: transparent;
+  border-left-color: transparent;  /* transform: translate(-50%, 50%) rotate(45deg); */
+
+  /* transform-origin: center center; */
+
+  /* z-index: 10; */
+}
+
+.tooltip-study {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* width: 200px; */
+  margin-bottom: 0.2em;
+  font-weight: 600;
+}
+
+.tooltip-info {
+  font-size: 0.8em;
+}
+
+/* .study { */
+
+/* fill: #007bff; */
+
+/* stroke: white; */
+
+/* } */
+
+.study-title {
+  position: absolute;
+  top: 50px;
+  left: 150px;
+  color: white;
+}
+
+.study-info {
+  background: transparent;
+  position: absolute;
+  top: 150px;
+  right: 20px;
+  height: 400px;
+  width: 300px;
+}
+
+.background {
+  fill: transparent;
+  pointer-events: all;
+}
+
+.map-layer {
+  fill: #6c757d;
+  stroke: white;
+  stroke-width: 0.3px;
+}
+
+#wrapper {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 1%;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+/* #worldMap {
+height: 50%;
+} */
+#geomap {
+  height: 45%;
+}
